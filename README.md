@@ -39,3 +39,10 @@ uv run src/sample/main.py
 ```shell
 python3
 ```
+
+### Adding Dependencies
+
+```shell
+uv add <package>
+uv add --dev <package>
+```
