@@ -93,6 +93,6 @@ check_untyped_defs = true
 exclude = ["/.venv/"]
 
 [tool.pytest.ini_options]
-testpaths = ["tests"]
+testpaths = ["src"]
 filterwarnings = ["ignore::DeprecationWarning"]
 addopts = ["--ignore=.venv"]
