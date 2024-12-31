@@ -1,0 +1,16 @@
+repos:
+    - repo: local
+      hooks:
+          - id: ruff-format
+            name: ruff-format
+            entry: ruff format
+            language: system
+            types: [python]
+            args: []
+
+          - id: ruff-lint
+            name: ruff-lint
+            entry: ruff check
+            language: system
+            types: [python]
+            args: []
