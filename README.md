@@ -46,3 +46,9 @@ python3
 uv add <package>
 uv add --dev <package>
 ```
+
+### Setup pre-commit
+
+```shell
+uv run pre-commit install
+```
