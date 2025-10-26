@@ -1,0 +1,37 @@
+[tools]
+"npm:commitlint" = "19.8.1"
+"npm:lefthook" = "1.11.14"
+"npm:prettier" = "3.5.3"
+
+uv = "0.9.5"
+
+[hooks]
+postinstall = "lefthook install"
+
+[tasks.uv-setup]
+description = "Set up uv environment"
+run = ["uv sync"]
+
+[tasks.uv-setup-prod]
+description = "Set up uv environment for production"
+run = ["uv sync --no-dev"]
+
+[tasks.lint]
+description = "Run linters"
+run = ["uv run ruff check src"]
+
+[tasks.format]
+description = "Run formatters"
+run = [
+  "uv run ruff format src",
+  "uv run ruff check --fix src",
+  "prettier --write .",
+]
+
+[tasks.test]
+description = "Run tests"
+run = ["uv run pytest"]
+
+[tasks.python]
+description = "Run Python scripts"
+run = ["uv run python"]

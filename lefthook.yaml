@@ -1,0 +1,44 @@
+pre-commit:
+  piped: true
+  commands:
+    ruff-format:
+      priority: 1
+      glob: "*.{py,ipynb}"
+      run: |
+        uv run ruff format {staged_files}
+      stage_fixed: true
+      skip:
+        - merge
+        - rebase
+
+    ruff-lint:
+      priority: 2
+      glob: "*.{py,ipynb}"
+      run: |
+        uv run ruff check --fix {staged_files}
+      stage_fixed: true
+      skip:
+        - merge
+        - rebase
+
+    prettier:
+      priority: 3
+      glob: "*.{js,ts,cjs,mjs,jsx,tsx,json,jsonc,md,mdx,yml,yaml,css,html}"
+      run: |
+        prettier {staged_files} --write
+      stage_fixed: true
+      skip:
+        - merge
+        - rebase
+
+post-merge:
+  commands:
+    pnpm:
+      glob: "{pyproject.toml,uv.lock}"
+      run: uv sync
+
+commit-msg:
+  commands:
+    commitlint:
+      run: |
+        commitlint --edit {1}
