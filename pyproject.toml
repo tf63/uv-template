@@ -43,7 +43,7 @@ build-backend = "hatchling.build"
 # https://docs.astral.sh/uv/configuration/indexes/
 [tool.ruff]
 line-length = 119
-indent-width = 2
+indent-width = 4
 # include files: ["*.py", "*.pyi", "**/pyproject.toml] https://docs.astral.sh/ruff/settings/#include
 # exclude files: [".venv", "dist", ...] https://docs.astral.sh/ruff/settings/#exclude
 
